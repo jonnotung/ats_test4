@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
+
 import FileInputComponent from './components/FileInputComponent';
+import isolateCategories from './utilities/isolateCategories';
 import './App.css';
 
 class App extends Component {
@@ -14,7 +16,7 @@ class App extends Component {
   getFile = (file) => {
     this.setState({
       data: file.data
-    });
+    }, () => {isolateCategories.isolateCountries(this.state.data)} );
   }
 
   render() {
@@ -30,6 +32,7 @@ class App extends Component {
               <p>{row.First_name} {row.Last_name}</p>
             )
           } ) }
+           
         </div>
       </div>
     );
