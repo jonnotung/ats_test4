@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component, Fragment} from 'react';
+import FileInputComponent from './components/FileInputComponent';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    };
+  }
+
+  getFile = (file) => {
+    this.setState({
+      data: file.data
+    });
+  }
+
+  render() {
+    return (
+      <div className="App outerWrapper">
+        <div className="innerWrapper">
+          <h1>Upload a comma separated .csv file</h1>
+          <FileInputComponent 
+            getFile = {this.getFile}
+          />
+          { this.state.data.map( (row) => {
+            return (
+              <p>{row.First_name} {row.Last_name}</p>
+            )
+          } ) }
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default App;
