@@ -42,7 +42,7 @@ body{
   font-size: 125%;
 }
 
-h1, label, p {
+body {
   font-family: 'PT Sans', sans-serif;
 }
 
@@ -51,6 +51,12 @@ h1 {
   font-size: 3rem;
   margin-top: 20px;
   margin-bottom: 10vh;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-top: 10vh;
+  margin-bottom: 0;
 }
 
 /* //-----------------------------
@@ -67,5 +73,5 @@ h1 {
 }
 
 .innerWrapper {
-  width: 80%;
+  width: 90%;
 }
