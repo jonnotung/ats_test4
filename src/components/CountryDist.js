@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import { connect } from 'react-redux';
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 
 const CountryDist = (props) => {
@@ -30,4 +31,10 @@ const CountryDist = (props) => {
     );
 }
 
-export default CountryDist;
+const mapStateToProps = (state) => {
+    return({
+        countryDist: state.countryDist
+    });
+}
+
+export default connect(mapStateToProps)(CountryDist);
