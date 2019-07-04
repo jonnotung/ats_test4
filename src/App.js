@@ -3,6 +3,7 @@ import {VictoryBar, VictoryScatter, VictoryLabel, VictoryChart, VictoryAxis, Vic
 
 import FileInputComponent from './components/FileInputComponent';
 import countryUtils from './utilities/countryUtils';
+import actions from './actions';
 import './App.css';
 
 class App extends Component {
@@ -27,9 +28,9 @@ class App extends Component {
   countCountries = () => {
     const countriesObj = countryUtils.isolateCountries(this.state.data); 
     
-    const countriesArr = countryUtils.toCountriesArray(countriesObj);
+    const countriesArr = countryUtils.toArray(countriesObj);
     const dist = countryUtils.getDistribution(countriesObj);
-    const distArr = countryUtils.toCountriesArray(dist);
+    const distArr = countryUtils.toArray(dist);
     const [topTen, bottomTen] = countryUtils.getTen(countriesArr);
 
     distArr.sort((a, b) => {
@@ -68,7 +69,7 @@ class App extends Component {
                   <VictoryAxis 
                     dependentAxis
                     label="Number of countries"
-                    style={{axisLabel: {padding: 40}}}
+                    style={{axisLabel: {padding: 30}}}
                   />
                   <VictoryBar
                     data={this.state.dist}

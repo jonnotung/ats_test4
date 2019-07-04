@@ -7,7 +7,7 @@ countryUtils.isolateCountries = (data) => {
 
     for(const row of data) {
         let currCountry = row.Country;
-   
+
         if (! (currCountry in countries)) {
             countries[currCountry] = 1;
         } else {
@@ -19,7 +19,7 @@ countryUtils.isolateCountries = (data) => {
 };
 
 //expects an object with keys = country names, values = count of people from file
-countryUtils.toCountriesArray = (data) => {
+countryUtils.toArray = (data) => {
     const countries = [];
 
     for (let country in data) {
