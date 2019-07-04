@@ -1,9 +1,9 @@
-import React, {Component, Fragment} from 'react';
-import {VictoryBar, VictoryScatter, VictoryLabel, VictoryChart, VictoryAxis, VictoryZoomContainer} from 'victory';
+import React, {Component} from 'react';
 
 import FileInputComponent from './components/FileInputComponent';
 import countryUtils from './utilities/countryUtils';
-import actions from './actions';
+// import actions from './actions';
+import CountryDist from './components/CountryDist';
 import './App.css';
 
 class App extends Component {
@@ -57,31 +57,7 @@ class App extends Component {
             getFile = {this.getFile}
           />
         
-          {
-            this.state.dist.length > 0 ?  
-              <Fragment>
-                <h3>Distribution of people from different countries</h3>
-                <VictoryChart width={1000} domainPadding={15}>
-                  <VictoryAxis 
-                    label="Number of people"
-                    style={{axisLabel: {padding: 30}}}
-                  />
-                  <VictoryAxis 
-                    dependentAxis
-                    label="Number of countries"
-                    style={{axisLabel: {padding: 30}}}
-                  />
-                  <VictoryBar
-                    data={this.state.dist}
-                    //data accessor for x values
-                    x="name"
-                    //data accessor for y values
-                    y="count"
-                  /> 
-                </VictoryChart>
-              </Fragment>
-            : ""
-          }
+          <CountryDist countryDist={this.state.dist}/>
           
            
         </div>

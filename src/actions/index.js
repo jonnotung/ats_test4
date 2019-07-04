@@ -10,7 +10,7 @@ actionCreators.getFile = (file) => {
 }
 
 actionCreators.countCountries = (data) => {
-    const countriesObj = countryUtils.isolateCountries(this.state.data);
+    const countriesObj = countryUtils.isolateCountries(data);
     const countriesArr = countryUtils.toArray(countriesObj);
 
     return ({
@@ -20,7 +20,7 @@ actionCreators.countCountries = (data) => {
 }
 
 actionCreators.getCountryDist = (data) => {
-    const countriesObj = countryUtils.isolateCountries(this.state.data); 
+    const countriesObj = countryUtils.isolateCountries(data); 
     const dist = countryUtils.getDistribution(countriesObj);
     const distArr = countryUtils.toArray(dist);
 
