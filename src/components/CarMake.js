@@ -1,29 +1,33 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory';
 
-const CountryDist = (props) => {
+import countryUtils from '../utilities/countryUtils';
+
+const CarMake = (props) => {
+   
 
     return (
-         !(props.countryDist.length === 0) ? 
+        !(props.carMake.length === 0) ?
             <Fragment>
-                <h3>Distribution of people from all countries present</h3>
+                <h3>Top 10 car brands for all countries</h3>
                 <VictoryChart 
-                    width={1000} 
-                    domainPadding={15}
+                    width={900} 
+                    domainPadding={45}
                     theme={VictoryTheme.material}
                 >
                     <VictoryAxis
-                        label="Number of people"
+                        label="Car brands"
                         style={{ axisLabel: { padding: 30 } }}
                     />
                     <VictoryAxis
                         dependentAxis
-                        label="Number of countries"
+                        label="Number of owners"
                         style={{ axisLabel: { padding: 30 } }}
                     />
                     <VictoryBar
-                        data={props.countryDist}
+                        padding={ 60}
+                        data={props.carMake}
                         //data accessor for x values
                         x="name"
                         //data accessor for y values
@@ -31,15 +35,17 @@ const CountryDist = (props) => {
                     />
                 </VictoryChart>
             </Fragment> : ""
-        
+
     );
 }
 
 const mapStateToProps = (state) => {
     
-    return({
-        countryDist: state.countryDist
+    return ({
+        carMake: state.carMakes,
+        selectedCountry: state.selectCountry
     });
+    
 }
 
-export default connect(mapStateToProps)(CountryDist);
+export default connect(mapStateToProps)(CarMake);

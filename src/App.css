@@ -53,6 +53,12 @@ h1 {
   margin-bottom: 10vh;
 }
 
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 50px 0 25px 0;
+}
+
 h3 {
   font-size: 1.75rem;
   margin-top: 10vh;
@@ -74,4 +80,20 @@ h3 {
 
 .innerWrapper {
   width: 90%;
+}
+
+select {
+  margin-top: 50px;
+}
+
+/* //-----------------------------
+//-----gender Section----------------
+//----------------------------- */
+.genderRow {
+  display: flex;
+  justify-content: center;
+}
+
+.genderRow h3 {
+  margin: 20px;
 }

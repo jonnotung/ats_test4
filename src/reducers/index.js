@@ -14,6 +14,20 @@ const countCountries = (data=[], action) => {
     return data;
 }
 
+const getCountryNames = (data=[], action) => {
+    if(action.type === "COUNTRY_NAMES") {
+        return action.payload;
+    }
+    return data;
+}
+
+const selectCountry = (data="all countries", action) => {
+    if(action.type==="SELECT_COUNTRY") {
+        return action.payload;
+    }
+    return data;
+}
+
 const countryDist = (data=[], action) => {
     if (action.type === "COUNTRY_DIST") {
         return action.payload;
@@ -21,7 +35,7 @@ const countryDist = (data=[], action) => {
     return data;
 }
 
-const countryGender = (data={}, action) => {
+const countryGender = (data=[], action) => {
     if (action.type === "GENDER") {
         return action.payload;
     }
@@ -29,9 +43,19 @@ const countryGender = (data={}, action) => {
     return data;
 }
 
+const carMakes = (data=[], action) => {
+    if(action.type === "CAR_MAKES") {
+        return action.payload;
+    }
+    return data;
+}
+
 export default combineReducers({
     file: file,
     countCountries: countCountries,
+    countryNames: getCountryNames,
+    selectCountry: selectCountry,
     countryDist: countryDist,
-    countryGender: countryGender
+    countryGender: countryGender,
+    carMakes: carMakes,
 });

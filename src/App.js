@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 
 import FileInputComponent from './components/FileInputComponent';
-// import actions from './actions';
+import CountrySelect from './components/CountrySelect';
 import CountryDist from './components/CountryDist';
+import CountryGender from './components/CountryGender';
+import CarMake from './components/CarMake';
 import './App.css';
 
 class App extends Component {
@@ -14,9 +16,14 @@ class App extends Component {
           <h1>Upload a comma separated .csv file</h1>
           
           <FileInputComponent />
-        
+
+          <CountrySelect />
+
           <CountryDist />
 
+          <CountryGender />
+
+          <CarMake />
         </div>
       </div>
     );

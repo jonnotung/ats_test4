@@ -9,6 +9,23 @@ actionCreators.getFile = (file) => {
     });
 }
 
+actionCreators.getCountryNames = (data) => {
+    const countriesObj = countryUtils.isolateCountries(data.data);
+    const nameArr = countryUtils.getCountryNames(countriesObj);
+
+    return({
+        type: "COUNTRY_NAMES",
+        payload: nameArr
+    });
+}
+
+actionCreators.selectCountry = (data) => {
+    return({
+        type: "SELECT_COUNTRY",
+        payload: data.target.value
+    });
+}
+
 actionCreators.countCountries = (data) => {
     const countriesObj = countryUtils.isolateCountries(data.data);
     const countriesArr = countryUtils.toArray(countriesObj);
@@ -16,6 +33,15 @@ actionCreators.countCountries = (data) => {
     return ({
         type: "COUNT_COUNTRIES",
         payload: countriesArr
+    });
+}
+
+actionCreators.countCarMakes = (data) => {
+    const carsArr = countryUtils.isolateCarMake(data.data);
+
+    return ({
+        type: "CAR_MAKES",
+        payload: carsArr
     });
 }
 
@@ -30,8 +56,12 @@ actionCreators.getCountryDist = (data) => {
     });
 }
 
-actionCreators.genderBreakdown = (data) => {
-    const gender = countryUtils.countGender(data.data);
+actionCreators.genderBreakdown = (data, selection) => {
+    let fileInput = data;
+    if(data.data) {
+        fileInput = data.data;
+    }
+    const gender = countryUtils.countGender(fileInput, selection);
 
     return ({
         type: "GENDER",

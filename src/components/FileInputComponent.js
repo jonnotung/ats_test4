@@ -12,8 +12,10 @@ const FileInputComponent = (props) => {
         const parsedFile = Papaparse.parse(content, {header: true});
         props.getFile(parsedFile);
         props.countCountries(parsedFile);
+        props.countryNames(parsedFile);
         props.countryDist(parsedFile);
         props.countryGender(parsedFile);
+        props.countCarMakes(parsedFile);
     }
 
     const handleFileChosen = (file) => {
@@ -45,6 +47,8 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     getFile: actionCreators.getFile,
     countCountries: actionCreators.countCountries,
+    countryNames: actionCreators.getCountryNames,
     countryDist: actionCreators.getCountryDist,
-    countryGender: actionCreators.genderBreakdown
+    countryGender: actionCreators.genderBreakdown,
+    countCarMakes: actionCreators.countCarMakes,
 })(FileInputComponent);
