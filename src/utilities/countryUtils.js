@@ -1,8 +1,11 @@
 const countryUtils = {};
 
 
-//expects output of parser - object with key Country 
+//expects output of parser - object with key Country
+//returns an object with keys = country names, values = # of people
 countryUtils.isolateCountries = (data) => {
+    
+    console.log(data);
     const countries = {};
 
     for(const row of data) {
@@ -14,11 +17,11 @@ countryUtils.isolateCountries = (data) => {
             countries[currCountry] = countries[currCountry] + 1;
         }
     }
-    console.log(countries);
     return countries;
 };
 
-//expects an object with keys = country names, values = count of people from file
+//expects an object with keys = country names, values = # of people
+//returns an array of objects of form country name: # of people
 countryUtils.toArray = (data) => {
     const countries = [];
 
@@ -31,7 +34,6 @@ countryUtils.toArray = (data) => {
             countries.push(currentCountry);
         }
     }
-    console.log(countries);
     return countries;
 }
 
@@ -47,7 +49,7 @@ countryUtils.getDistribution = (data) => {
             dist[thisCount] = dist[thisCount] + 1;
         }
     }
-    console.log(dist);
+    
     return dist;
 }
 
@@ -59,6 +61,20 @@ countryUtils.getTen = (dataArray) => {
     return [arrayCopy.slice(0, 10), arrayCopy.slice(arrayCopy.length - 10, arrayCopy.length)];
 }
 
+countryUtils.countGender = (data) => {
+    const countries = {
+        Female: 0,
+        Male: 0
+    };
+
+    for(const row of data) {
+        if (row.Id) {
+            countries[row.Gender] = countries[row.Gender] + 1;
+        }
+    }
+
+    return countries;
+}
 
 
 export default countryUtils;

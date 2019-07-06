@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-const getFile = (file=null, action) => {
+const file = (file=null, action) => {
     if (action.type === "LOAD_FILE") {
         return action.payload;
     }
@@ -21,8 +21,17 @@ const countryDist = (data=[], action) => {
     return data;
 }
 
+const countryGender = (data={}, action) => {
+    if (action.type === "GENDER") {
+        return action.payload;
+    }
+
+    return data;
+}
+
 export default combineReducers({
-    file: getFile,
+    file: file,
     countCountries: countCountries,
     countryDist: countryDist,
+    countryGender: countryGender
 });

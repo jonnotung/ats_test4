@@ -10,7 +10,7 @@ actionCreators.getFile = (file) => {
 }
 
 actionCreators.countCountries = (data) => {
-    const countriesObj = countryUtils.isolateCountries(data);
+    const countriesObj = countryUtils.isolateCountries(data.data);
     const countriesArr = countryUtils.toArray(countriesObj);
 
     return ({
@@ -20,13 +20,22 @@ actionCreators.countCountries = (data) => {
 }
 
 actionCreators.getCountryDist = (data) => {
-    const countriesObj = countryUtils.isolateCountries(data); 
+    const countriesObj = countryUtils.isolateCountries(data.data); 
     const dist = countryUtils.getDistribution(countriesObj);
     const distArr = countryUtils.toArray(dist);
 
     return ({
         type: "COUNTRY_DIST",
         payload: distArr
+    });
+}
+
+actionCreators.genderBreakdown = (data) => {
+    const gender = countryUtils.countGender(data.data);
+
+    return ({
+        type: "GENDER",
+        payload: gender
     });
 }
 
