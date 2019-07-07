@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {connect} from 'react-redux';
 
 import FileInputComponent from './components/FileInputComponent';
 import CountrySelect from './components/CountrySelect';
@@ -7,9 +8,9 @@ import CountryGender from './components/CountryGender';
 import CarMake from './components/CarMake';
 import './App.css';
 
-class App extends Component {
+const App = (props) => {
   
-  render() {
+ 
     return (
       <div className="App outerWrapper">
         <div className="innerWrapper">
@@ -19,19 +20,29 @@ class App extends Component {
 
           <CountryDist />
 
-          <div className="breakdown">
-            <CountrySelect />
+         {props.countryDist.length > 0 ?
+            <div className="breakdown">
+              <CountrySelect />
 
-            <CountryGender />
+              <CountryGender />
 
-            <CarMake />
+              <CarMake />
 
-          </div>
+            </div> : ""
+         }
         </div>
       </div>
     );
-  }
-
 }
 
-export default App;
+
+
+const mapStateToProps = (state) => {
+  return({
+      countryDist: state.countryDist
+  });
+}
+
+
+
+export default connect(mapStateToProps)(App);

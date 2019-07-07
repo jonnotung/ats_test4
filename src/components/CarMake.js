@@ -2,10 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory';
 
-import countryUtils from '../utilities/countryUtils';
-
 const CarMake = (props) => {
-   
 
     return (
         !(props.carMake.length === 0) ?

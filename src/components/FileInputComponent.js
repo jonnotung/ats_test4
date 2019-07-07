@@ -11,6 +11,7 @@ const FileInputComponent = (props) => {
         const content = fileReader.result;
         const parsedFile = Papaparse.parse(content, {header: true});
         //dispatch actions needed to get initial display for all countries
+
         props.getFile(parsedFile);
         props.countCountries(parsedFile);
         props.countryNames(parsedFile);
@@ -39,13 +40,10 @@ const FileInputComponent = (props) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    console.log(state);
-    return {};
-}
+
 
 //FileInputComponent doesn't display anything from state
-export default connect(mapStateToProps, {
+export default connect(null, {
     getFile: actionCreators.getFile,
     countCountries: actionCreators.countCountries,
     countryNames: actionCreators.getCountryNames,

@@ -8,6 +8,7 @@ const CountryDist = (props) => {
          !(props.countryDist.length === 0) ? 
             <div className="distribution">
                 <h3>Distribution of people from all countries present</h3>
+                <h3>Total people in file: {props.file.length}</h3>
                 <VictoryChart 
                     
                     height={500}
@@ -38,9 +39,10 @@ const CountryDist = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    
+ 
     return({
-        countryDist: state.countryDist
+        countryDist: state.countryDist,
+        file: state.file
     });
 }
 

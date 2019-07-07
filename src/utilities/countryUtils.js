@@ -1,5 +1,18 @@
 const countryUtils = {};
 
+countryUtils.removeEmptyEntries = (data) => {
+    const entries = data.data;
+
+    const cleanedEntries = [];
+    for (const index in entries) {
+        
+        if(entries[index].Id) {
+            cleanedEntries.push(entries[index]);
+        }
+    }
+    return cleanedEntries;
+}
+
 
 //expects output of parser - object with key Country
 //returns an object with keys = country names, values = # of people
@@ -36,13 +49,13 @@ countryUtils.toArray = (data) => {
     const countries = [];
 
     for (let country in data) {
-        if(country !== "undefined") {
-            const currentCountry = {
-                name: country,
-                count: data[country]
-            }
-            countries.push(currentCountry);
+        
+        const currentCountry = {
+            name: country,
+            count: data[country]
         }
+        countries.push(currentCountry);
+        
     }
     return countries;
 }
@@ -77,7 +90,6 @@ countryUtils.countGender = (data, selection) => {
         {gender: "Male", count: 0}
     ];
 
-    console.log(data);
     let totalPeople = 0;
 
     for(const row of data) {

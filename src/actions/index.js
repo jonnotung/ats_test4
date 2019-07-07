@@ -3,9 +3,12 @@ import countryUtils from '../utilities/countryUtils';
 const actionCreators = {};
 
 actionCreators.getFile = (file) => {
+
+    const cleanedFile = countryUtils.removeEmptyEntries(file);
+
     return ({
         type: "LOAD_FILE",
-        payload: file.data
+        payload: cleanedFile,
     });
 }
 

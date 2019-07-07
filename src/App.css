@@ -98,13 +98,17 @@ select {
 
 
 /* //-----------------------------
-//-----distribution Section--------
+//-----distribution and breakdown Sections--------
 //----------------------------- */
 .distribution, 
 .breakdown {
   box-shadow: 0 0 10px 2px lightgrey;
   padding: 50px 25px;
   margin: 50px 0 0 0;
+}
+
+.distribution h3 {
+  margin-top: 20px;
 }
 
 .breakdown {

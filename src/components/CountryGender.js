@@ -27,7 +27,6 @@ const CountryGender = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return({
         file: state.file,
         countryGender: state.countryGender,
