@@ -10,6 +10,44 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
+
+/* //-----------------------------
+//-----css variables----------------
+//----------------------------- */
+
+
+/* //-----------------------------
+//-----typography----------------
+//----------------------------- */
+body{
+  font-size: 125%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+  color: black;
+  font-size: 3rem;
+  margin-top: 10vh;
+  margin-bottom: 7vh;
+}
+
+h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 50px 0 25px 0;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+
 /* //-----------------------------
 //-----common-stylings---------
 //----------------------------- */
@@ -18,12 +56,13 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
   text-align: center;
 }
 
-
-
 .loadLabel {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
   display: inline-block;
-  background-color: deepskyblue;
-  color: whitesmoke;
+  background-color: #55ACAC;
+  color: #FFE97E;
   border: none;
   border-radius: 100px;
   padding: 20px 40px;
@@ -35,35 +74,6 @@ input[type="file"] {
   left: -1000%;
 }
 
-/* //-----------------------------
-//-----typography----------------
-//----------------------------- */
-body{
-  font-size: 125%;
-}
-
-body {
-  font-family: 'PT Sans', sans-serif;
-}
-
-h1 {
-  color: black;
-  font-size: 3rem;
-  margin-top: 20px;
-  margin-bottom: 10vh;
-}
-
-h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin: 50px 0 25px 0;
-}
-
-h3 {
-  font-size: 1.75rem;
-  margin-top: 10vh;
-  margin-bottom: 0;
-}
 
 /* //-----------------------------
 //-----wrappers----------------
@@ -83,7 +93,22 @@ h3 {
 }
 
 select {
-  margin-top: 50px;
+  margin-top: 25px;
+}
+
+
+/* //-----------------------------
+//-----distribution Section--------
+//----------------------------- */
+.distribution, 
+.breakdown {
+  box-shadow: 0 0 10px 2px lightgrey;
+  padding: 50px 25px;
+  margin: 50px 0 0 0;
+}
+
+.breakdown {
+  margin: 25px 0 50px 0;
 }
 
 /* //-----------------------------
@@ -96,4 +121,42 @@ select {
 
 .genderRow h3 {
   margin: 20px;
+}
+
+@media (max-width: 750px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .loadLabel {
+   
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1rem;
+  }
+
+  .loadLabel {
+   
+    font-size: 1rem;
+  }
 }

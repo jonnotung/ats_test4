@@ -20,9 +20,10 @@ actionCreators.getCountryNames = (data) => {
 }
 
 actionCreators.selectCountry = (data) => {
+
     return({
         type: "SELECT_COUNTRY",
-        payload: data.target.value
+        payload: data
     });
 }
 
@@ -36,8 +37,12 @@ actionCreators.countCountries = (data) => {
     });
 }
 
-actionCreators.countCarMakes = (data) => {
-    const carsArr = countryUtils.isolateCarMake(data.data);
+actionCreators.countCarMakes = (data, selection) => {
+    let fileInput = data;
+    if(data.data) {
+        fileInput = data.data;
+    }
+    const carsArr = countryUtils.isolateCarMake(fileInput, selection);
 
     return ({
         type: "CAR_MAKES",

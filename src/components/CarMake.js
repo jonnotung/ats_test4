@@ -10,14 +10,15 @@ const CarMake = (props) => {
     return (
         !(props.carMake.length === 0) ?
             <Fragment>
-                <h3>Top 10 car brands for all countries</h3>
+                <h3>Top 10 car brands for {props.selectedCountry}</h3>
                 <VictoryChart 
-                    width={900} 
-                    domainPadding={45}
+                    width={750} 
+                    // domainPadding={45}
                     theme={VictoryTheme.material}
+                    domainPadding={60}
                 >
                     <VictoryAxis
-                        label="Car brands"
+                        label=""
                         style={{ axisLabel: { padding: 30 } }}
                     />
                     <VictoryAxis
@@ -26,6 +27,7 @@ const CarMake = (props) => {
                         style={{ axisLabel: { padding: 30 } }}
                     />
                     <VictoryBar
+                        
                         padding={ 60}
                         data={props.carMake}
                         //data accessor for x values

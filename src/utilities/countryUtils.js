@@ -71,7 +71,7 @@ countryUtils.getTen = (dataArray) => {
     return [arrayCopy.slice(0, 10), arrayCopy.slice(arrayCopy.length - 10, arrayCopy.length)];
 }
 
-countryUtils.countGender = (data, selected) => {
+countryUtils.countGender = (data, selection) => {
     const countries = [
         {gender: "Female", count: 0},
         {gender: "Male", count: 0}
@@ -81,7 +81,7 @@ countryUtils.countGender = (data, selected) => {
     let totalPeople = 0;
 
     for(const row of data) {
-        if (row.Id &&  (row.Country === selected || selected === "all countries")) {
+        if (row.Id && (selection === "all countries" || row.Country === selection)) {
             totalPeople++;
             if(row.Gender === "Female") {
                 countries[0].count = countries[0].count + 1;
@@ -94,20 +94,23 @@ countryUtils.countGender = (data, selected) => {
 
     countries[0].count = countries[0].count / totalPeople;
     countries[1].count = countries[1].count / totalPeople;
+    countries.push(totalPeople);
 
     return countries;
 }
 
-countryUtils.isolateCarMake = (data) => {
+countryUtils.isolateCarMake = (data, selection) => {
     const cars= {};
 
     for (const row of data) {
-        let currCar = row["Car Make"];
-
-        if (!(currCar in cars)) {
-            cars[currCar] = 1;
-        } else {
-            cars[currCar] = cars[currCar] + 1;
+        if(row.Id && (selection === "all countries" || row.Country === selection)) {
+            let currCar = row["Car Make"];
+            
+            if (!(currCar in cars)) {
+                cars[currCar] = 1;
+            } else {
+                cars[currCar] = cars[currCar] + 1;
+            }
         }
     }
     

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory';
 
@@ -6,10 +6,11 @@ const CountryDist = (props) => {
 
     return (
          !(props.countryDist.length === 0) ? 
-            <Fragment>
+            <div className="distribution">
                 <h3>Distribution of people from all countries present</h3>
                 <VictoryChart 
-                    width={1000} 
+                    
+                    height={500}
                     domainPadding={15}
                     theme={VictoryTheme.material}
                 >
@@ -23,6 +24,7 @@ const CountryDist = (props) => {
                         style={{ axisLabel: { padding: 30 } }}
                     />
                     <VictoryBar
+                        horizontal
                         data={props.countryDist}
                         //data accessor for x values
                         x="name"
@@ -30,7 +32,7 @@ const CountryDist = (props) => {
                         y="count"
                     />
                 </VictoryChart>
-            </Fragment> : ""
+            </div> : ""
         
     );
 }

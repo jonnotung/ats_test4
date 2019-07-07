@@ -17,13 +17,16 @@ class App extends Component {
           
           <FileInputComponent />
 
-          <CountrySelect />
-
           <CountryDist />
 
-          <CountryGender />
+          <div className="breakdown">
+            <CountrySelect />
 
-          <CarMake />
+            <CountryGender />
+
+            <CarMake />
+
+          </div>
         </div>
       </div>
     );
