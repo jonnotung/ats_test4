@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-const file = (file=null, action) => {
+const file = (file=[], action) => {
     if (action.type === "LOAD_FILE") {
         return action.payload;
     }

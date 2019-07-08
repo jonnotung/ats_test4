@@ -20,8 +20,8 @@ countryUtils.isolateCountries = (data) => {
     
     const countries = {};
 
-    for(const row of data) {
-        let currCountry = row.Country;
+    for(const index in data) {
+        let currCountry = data[index].Country;
 
         if (! (currCountry in countries)) {
             countries[currCountry] = 1;

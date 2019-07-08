@@ -10,14 +10,9 @@ const FileInputComponent = (props) => {
     const handleFileRead = (event) => {
         const content = fileReader.result;
         const parsedFile = Papaparse.parse(content, {header: true});
-        //dispatch actions needed to get initial display for all countries
 
         props.getFile(parsedFile);
-        props.countCountries(parsedFile);
-        props.countryNames(parsedFile);
-        props.countryDist(parsedFile);
         props.countryGender(parsedFile, "all countries");
-        props.countCarMakes(parsedFile, "all countries");
     }
 
     const handleFileChosen = (file) => {

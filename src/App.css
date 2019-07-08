@@ -12,11 +12,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 
 /* //-----------------------------
-//-----css variables----------------
-//----------------------------- */
-
-
-/* //-----------------------------
 //-----typography----------------
 //----------------------------- */
 body{
@@ -25,14 +20,15 @@ body{
 
 body {
   font-family: 'Open Sans', sans-serif;
+  color: #414142;
 }
 
 h1 {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: bold;
-  color: black;
+  color: #FEFEFE;
   font-size: 3rem;
-  margin-top: 10vh;
+  
   margin-bottom: 7vh;
 }
 
@@ -56,25 +52,6 @@ h3 {
   text-align: center;
 }
 
-.loadLabel {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  display: inline-block;
-  background-color: #55ACAC;
-  color: #FFE97E;
-  border: none;
-  border-radius: 100px;
-  padding: 20px 40px;
-
-}
-
-input[type="file"] {
-  position: absolute;
-  left: -1000%;
-}
-
-
 /* //-----------------------------
 //-----wrappers----------------
 //----------------------------- */
@@ -96,15 +73,59 @@ select {
   margin-top: 25px;
 }
 
+/* //-----------------------------
+//-----Header section--------------
+//----------------------------- */
+header  {
+  background-color: #0174b1;
+  height: 70vh;
+  padding: 10vh 0 0 0;
+  background: linear-gradient(355deg, #FEFEFE, #FEFEFE 22%,  #0174b1 22%, #0174b1 );
+}
+
+.loadLabel {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  background-color: #FEFEFE;
+  color: #40b4e5;
+  border: none;
+  border-radius: 100px;
+  border: 2px solid #40b4e5;
+  padding: 20px 40px;
+  transition: 0.2s ease;
+}
+
+.loadLabel:hover {
+  color: #FEFEFE;
+  background-color: #40b4e5;
+  border: 2px solid #FEFEFE;
+}
+
+input[type="file"] {
+  position: absolute;
+  left: -1000%;
+}
 
 /* //-----------------------------
 //-----distribution and breakdown Sections--------
 //----------------------------- */
+
+.distOuter {
+  transform: translateY(-25vh);
+}
+
 .distribution, 
 .breakdown {
-  box-shadow: 0 0 10px 2px lightgrey;
+  box-shadow: 0 0 10px 2px #0174b1;
   padding: 50px 25px;
-  margin: 50px 0 0 0;
+  
+  border-radius: 10px;
+}
+
+.distribution {
+  background-color: #FEFEFE;
 }
 
 .distribution h3 {
@@ -112,7 +133,13 @@ select {
 }
 
 .breakdown {
-  margin: 25px 0 50px 0;
+  margin: 25px 0 0 0;
+  background: #FEFEFE;
+  transform: translateY(-12vh);
+}
+
+.breakdownOuter {
+  background: linear-gradient(355deg, #0174b1, #0174b1 35%,  #FEFEFE 35%, #FEFEFE );
 }
 
 /* //-----------------------------
@@ -123,8 +150,12 @@ select {
   justify-content: center;
 }
 
+.totalPeople {
+  margin-bottom: 15px;
+}
+
 .genderRow h3 {
-  margin: 20px;
+ margin-top: 5px;
 }
 
 @media (max-width: 750px) {

@@ -13,7 +13,7 @@ actionCreators.getFile = (file) => {
 }
 
 actionCreators.getCountryNames = (data) => {
-    const countriesObj = countryUtils.isolateCountries(data.data);
+    const countriesObj = countryUtils.isolateCountries(data);
     const nameArr = countryUtils.getCountryNames(countriesObj);
 
     return({
@@ -31,7 +31,7 @@ actionCreators.selectCountry = (data) => {
 }
 
 actionCreators.countCountries = (data) => {
-    const countriesObj = countryUtils.isolateCountries(data.data);
+    const countriesObj = countryUtils.isolateCountries(data);
     const countriesArr = countryUtils.toArray(countriesObj);
 
     return ({
@@ -54,7 +54,7 @@ actionCreators.countCarMakes = (data, selection) => {
 }
 
 actionCreators.getCountryDist = (data) => {
-    const countriesObj = countryUtils.isolateCountries(data.data); 
+    const countriesObj = countryUtils.isolateCountries(data); 
     const dist = countryUtils.getDistribution(countriesObj);
     const distArr = countryUtils.toArray(dist);
 
